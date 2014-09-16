@@ -89,14 +89,39 @@ alert("There are " + victims.length + " people in need. " +"\n" + "You have " + 
 	+ victimstring + "And the volunteers you have are: \n" + volunteerstring + "Good luck!");
 
 
-// var lookForHelp = prompt("Would you like to find help for a specific victim? Y/N");
 
-// if (lookForHelp === 'Y') {
-// 	var helpWho = prompt("Please enter the exact name of the person you would like to find help for.")
-	
+function findHelp(){
+	var lookForHelp = prompt("Would you like to find help for a specific victim? Y/N");
 
-// }
+	if (lookForHelp === 'Y') {
+		var helpWho = prompt("Please enter the exact name of the person you would like to find help for.");
 
+		 var finder = null;
+		 for (var k = 0; k < victims.length; k++) {
+		 	if (victims[k].vName === helpWho) {
+		 		finder = victims[k].vStreet;
+		 	}
+		 }
+		 if (finder !== null){
+		 	var findvol = null;
+		 	for(var l = 0; l < volunteers.length; l++) {
+		 		if (volunteers[l].vStreet === finder){
+		 			alert(volunteers[l].vName + " is on the same street and is available to help them.");
+		 		}
+		 		else {
+		 			alert("No one is available at this time.");
+		 		}
+		 	}
+		 }
+		 else {
+		 	alert("No victim by that name was found.");
+		 }
+
+
+	}
+};
+
+findHelp();
 
 
 
